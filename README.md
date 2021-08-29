@@ -1,5 +1,5 @@
 <h1 align="center">
-   💻 Crud Node.js
+   💻 CRUD Node.js
 </h1>
 <div align="center">
         <img src="https://img.shields.io/github/languages/top/myguelangello/first-app?color=blue&style=flat" />
@@ -9,7 +9,7 @@
 </div>
 <br/>
 <div>
-    <p align="">🚀 Este código apresenta um crud básico de cadastro de pessoas </p>
+    <p align="">🚀 Esta aplicação apresenta um crud básico de cadastro de pessoas </p>
     <p align="">🚧 Desenvolvido durante a disciplina Autoração Multimídia II do curso Sistemas e Mídias Digitais - UFC</p>
 </div>
 <div>
