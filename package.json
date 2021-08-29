@@ -1,5 +1,5 @@
 {
-  "name": "first-app",
+  "name": "crud-node",
   "version": "0.1.0",
   "description": "Aplicação para cadastro de usuários",
   "main": "index.js",
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/myguelangello/first-app.git"
+    "url": "git+https://github.com/myguelangello/crud-node.git"
   },
   "keywords": [
     "node",
@@ -27,7 +27,7 @@
   "author": "Myguel Angello",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/myguelangello/first-app/issues"
+    "url": "https://github.com/myguelangello/crud-node/issues"
   },
-  "homepage": "https://github.com/myguelangello/first-app#readme"
+  "homepage": "https://github.com/myguelangello/crud-node#readme"
 }
