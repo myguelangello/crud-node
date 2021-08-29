@@ -2,10 +2,10 @@
    💻 CRUD Node.js
 </h1>
 <div align="center">
-        <img src="https://img.shields.io/github/languages/top/myguelangello/first-app?color=blue&style=flat" />
-    <img src="https://img.shields.io/github/license/myguelangello/first-app?color=blueviolet&style=flat"  />
-    <img src="https://img.shields.io/github/last-commit/myguelangello/first-app?color=brightgreen&style=flat" />
-    <img src="https://img.shields.io/github/package-json/v/myguelangello/first-app?color=lightgrey&style=flat" />
+        <img src="https://img.shields.io/github/languages/top/myguelangello/crud-node?color=blue&style=flat" />
+    <img src="https://img.shields.io/github/license/myguelangello/crud-node?color=blueviolet&style=flat"  />
+    <img src="https://img.shields.io/github/last-commit/myguelangello/crud-node?color=brightgreen&style=flat" />
+    <img src="https://img.shields.io/github/package-json/v/myguelangello/crud-node?color=lightgrey&style=flat" />
 </div>
 <br/>
 <div>
@@ -41,8 +41,8 @@
     <li>No seu terminal, clone o projeto e acesse a pasta do mesmo.</li>
     
   ```bash
-  $ git clone https://github.com/myguelangello/first-app
-  $ cd first-app
+  $ git clone https://github.com/myguelangello/crud-node
+  $ cd crud-node
   ```
   </ul>
    <ul>
