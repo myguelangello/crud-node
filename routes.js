@@ -26,7 +26,7 @@ router.get("/about", (req, res) => {
 router.get("/cadastro", (req, res) => {
   let users = [
     {
-      name: "Myguel Angello",
+      name: "Myguel Angello Maciel de Abreu",
       address: "Rua PJR, 1103",
       email: "my@email.com",
       age: 20,
@@ -41,13 +41,29 @@ router.get("/cadastro", (req, res) => {
       height: 1.79,
       vote: true,
     },
+    {
+      name: "Fulano Cicrano de tal",
+      address: "Rua da liberdade, 100",
+      email: "fulano@email.com",
+      age: 31,
+      height: 1.85,
+      vote: true,
+    },
   ];
-  res.render("pages/cadastro", { users });
+  res.render("pages/cadastro", {
+    users,
+  }); /* a função render para receber um objeto literal como parâmetro */
 });
 
 router.get("/cadastro/remove/:id", (req, res) => {
-  //inserir um usuario
+  res.send("Remoção realizada com sucesso!");
+  //remover the user
 });
+
+router.get("/cadastro/update/:id", (req, res) => {
+  res.send("Atualização realizada com sucesso!");
+});
+
 router.get("/cadastro/list", (req, res) => {
   //listar de usuarios cadastrado
 });

@@ -5,6 +5,15 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+}
+main {
+  padding-top: 3.5rem;
+}
+
 ul {
   list-style: none;
 }
@@ -12,12 +21,29 @@ ul {
 a {
   text-decoration: none;
 }
+li a.active {
+  border: 0.125rem solid whitesmoke;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+}
+
+li.nav-item {
+  margin-left: 2rem;
+}
 
 img {
   width: 100%;
   height: auto;
 }
 
-body {
-  background-color: #e3e3e4;
+h2 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  margin: 1.5rem 0 2rem;
+}
+table tbody tr td a {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
 }

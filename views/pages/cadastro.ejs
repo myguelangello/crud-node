@@ -1,21 +1,32 @@
 <%- contentFor('body') %>
 
-<div class="">
-  <h2>CADASTRO</h2>
-  <div class="">
-    <table class="table table-striped">
+<div class="container-lg container-md container-sm">
+  <h2 class="">Cadastro</h2>
+  <div class="table-responsive">
+    <table
+      id="tableCadastro"
+      class="table table-bordered table-hover caption-top"
+      style="width: 100%"
+    >
+      <caption>
+        Lista de usuários cadastrados
+      </caption>
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Address</th>
+          <th>Nome</th>
+          <th>Endereço</th>
           <th>Email</th>
-          <th>Age</th>
-          <th>Height</th>
-          <th>Vote?</th>
-          <th>Action</th>
+          <th>Idade</th>
+          <th>Altura</th>
+          <th>Vota</th>
+          <th>Editar</th>
+          <th>Apagar</th>
         </tr>
       </thead>
       <tbody>
+        <% let linkRemove="/cadastro/remove"; let linkUpdate="/cadastro/update";
+        let count; %>
+        <!-- recebendo o objeto Users -->
         <% for (user of users) { %>
         <tr>
           <td><%= user.name %></td>
@@ -25,26 +36,46 @@
           <td><%= user.height %></td>
           <td><%= user.vote %></td>
           <td>
-            <a href=""><i class="fas fa-pen"></i></a>
+            <a
+              href="<%= linkUpdate %>"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="Editar Dados"
+            >
+              <i
+                class="bi bi-pencil"
+                style="font-size: 1.5rem; color: cornflowerblue"
+                role="image"
+              >
+              </i>
+            </a>
           </td>
           <td>
-            <a href=""><i class="fas fa-trash-alt"></i></a>
+            <a
+              href="<%= linkRemove %>"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="Desejar Excluir?"
+            >
+              <i class="bi bi-trash" style="font-size: 1.5rem; color: red"> </i>
+            </a>
           </td>
         </tr>
 
         <% } %>
-
-        <tr>
-          <td>Mary</td>
-          <td>Moe</td>
-          <td>mary@example.com</td>
-        </tr>
-        <tr>
-          <td>July</td>
-          <td>Dooley</td>
-          <td>july@example.com</td>
-        </tr>
       </tbody>
+      <tfoot>
+        <tr>
+          <th>Nome</th>
+          <th>Endereço</th>
+          <th>Email</th>
+          <th>Idade</th>
+          <th>Altura</th>
+          <th>Vota</th>
+          <th>Editar</th>
+          <th>Apagar</th>
+        </tr>
+      </tfoot>
     </table>
   </div>
 </div>
