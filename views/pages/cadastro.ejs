@@ -20,50 +20,76 @@
           <th>Altura</th>
           <th>Vota</th>
           <th>Editar</th>
+          <th>Salvar</th>
           <th>Apagar</th>
         </tr>
       </thead>
       <tbody>
-        <% let linkRemove="/cadastro/remove"; let linkUpdate="/cadastro/update";
-        let count; %>
-        <!-- recebendo o objeto Users -->
-        <% for (user of users) { %>
-        <tr>
-          <td><%= user.name %></td>
-          <td><%= user.address %></td>
-          <td><%= user.email %></td>
-          <td><%= user.age %></td>
-          <td><%= user.height %></td>
-          <td><%= user.vote %></td>
-          <td>
-            <a
-              href="<%= linkUpdate %>"
-              data-bs-toggle="tooltip"
-              data-bs-placement="top"
-              title="Editar Dados"
-            >
-              <i
-                class="bi bi-pencil"
-                style="font-size: 1.5rem; color: cornflowerblue"
-                role="image"
-              >
-              </i>
-            </a>
-          </td>
-          <td>
-            <a
-              href="<%= linkRemove %>"
-              data-bs-toggle="tooltip"
-              data-bs-placement="top"
-              title="Desejar Excluir?"
-            >
-              <i class="bi bi-trash" style="font-size: 1.5rem; color: red"> </i>
-            </a>
-          </td>
-        </tr>
 
-        <% } %>
-      </tbody>
+
+            <% let linkRemove="/cadastro/remove/"; %>
+            <% let linkUpdate="/cadastro/update/"; %>
+            <% let indice; %>
+            <% for(let index=0;index<users.length;index++){ %>
+                <tr>
+
+                  <!-- td name -->
+              <td data-index-row="<%=index%>">
+                    <span id="fieldName<%=index%>" class="show"><%= users[index].name %></span>
+                    <input type="text" name="name" id="name<%=index%>" class="hidden" value="<%= users[index].name %>">
+                </td>
+
+                <!-- td email -->
+                <td data-index-row="<%=index%>">
+                    <span  class="show"><%= users[index].email %></span>
+                    <input type="text" name="email"  class="hidden" value="<%= users[index].email %>">
+                </td>
+
+                <!-- td address -->
+                <td data-index-row="<%=index%>">
+                    <span  class="show"><%= users[index].address %></span>
+                    <input type="text" name="address"  class="hidden" value="<%= users[index].address %>">
+                </td>
+
+                <!-- td agr -->
+                <td data-index-row="<%=index%>">
+                    <span  class="show"><%= users[index].age %></span>
+                    <input type="text" name="age"  class="hidden" value="<%= users[index].age %>">
+                </td>
+
+                <!-- td height -->
+                <td data-index-row="<%=index%>">
+                    <span  class="show"><%= users[index].height %></span>
+                    <input type="text" name="height"  class="hidden" value="<%= users[index].height %>">
+                </td>
+
+                <!-- td vote -->
+                <td data-index-row="<%=index%>">
+                    <span  class="show"><%= users[index].vote %></span>
+                    <input type="text" name="vote" class="hidden" value="<%= users[index].vote %>">
+                    
+                </td>
+
+                <!-- TD LINK UPDATE -->
+                <!-- a funcao update()  foi criada no arquivo script.js presente no diretorio public. Ela fará a modificação dos itens e envio dos dados na forma de uma string para o servidor usando como rta /cadastro/update/ -->
+                <td  data-index-row="<%=index%>">
+                  <a href="#" onclick="update('<%=index%>','<%= linkUpdate %>')" class="show"><i class="bi bi-pencil" style="font-size: 1.5rem; color: cornflowerblue"></i></a>  
+                </td> 
+                
+                <!-- botão atualizar -->
+                 <td data-index-row="<%=index%>" class="show" data-index-row="<%=index%>">
+                  <input disabled type="button" value="Atualizar" class="show">
+                </td>
+               
+                <!-- TD LINK REMOVE -->
+                <!-- para passar parametros para uma rota criada basta usar o delimitador "/" entre os valores dos parametros e defini-los no arquivo de rotas usando ":" para separar cada valor, seguido de um nome que identificarar esse valor. Exemplo: /cadastro/remove/:id -->
+                <td  data-index-row="<%= index %>">
+                    <a href="#" class="show" onclick="remove('<%=index %>','<%=linkRemove%>')"><i class="bi bi-trash" style="font-size: 1.5rem; color: red"> </i></a>
+                </td>
+                </tr>
+            <% } %>
+
+        </tbody>
       <tfoot>
         <tr>
           <th>Nome</th>
@@ -73,6 +99,7 @@
           <th>Altura</th>
           <th>Vota</th>
           <th>Editar</th>
+          <th>Salvar</th>
           <th>Apagar</th>
         </tr>
       </tfoot>

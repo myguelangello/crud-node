@@ -47,3 +47,11 @@ table tbody tr td a {
   align-items: center;
   justify-content: center;
 }
+
+.show {
+  display: inline-flexbox;
+}
+
+.hidden {
+  display: none;
+}

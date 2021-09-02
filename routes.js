@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const app = express();
+/* const app = express(); */
 
 //const faker = require("faker");
 
@@ -14,54 +14,47 @@ Para serem alcançados os arquivos e pastas que estão dentro dele.
 Por isso na imagem que está na página home.ejs só há o indicativo para 'images' */
 router.use(express.static("public"));
 
+//Req é um objeto que recebe dados da requisição HTTP feita (request). Res permite enviar uma resposta ao navegador (Response)
 router.get("/", (req, res) => {
-  /* callback - funcao que trata dado evento  */
+  //callback - funcao que trata dado evento
   res.render("pages/home"); // posso omitir a extensão .ejs do home.ejs
 });
 
 router.get("/about", (req, res) => {
+  //callback - funcao que trata dado evento
   res.render("pages/about");
 });
 
 router.get("/cadastro", (req, res) => {
-  let users = [
-    {
-      name: "Myguel Angello Maciel de Abreu",
-      address: "Rua PJR, 1103",
-      email: "my@email.com",
-      age: 20,
-      height: 1.7,
-      vote: true,
-    },
-    {
-      name: "Wellington Wagner",
-      address: "Rua Viewer, 13",
-      email: "wwagner@email.com",
-      age: 46,
-      height: 1.79,
-      vote: true,
-    },
-    {
-      name: "Fulano Cicrano de tal",
-      address: "Rua da liberdade, 100",
-      email: "fulano@email.com",
-      age: 31,
-      height: 1.85,
-      vote: true,
-    },
-  ];
-  res.render("pages/cadastro", {
-    users,
-  }); /* a função render para receber um objeto literal como parâmetro */
+  //a funcao render pode receber um pametro na forma de objeto literal
+  //no caso, ela irá receber um objeto com campo chamado users e com valor igual ao vetor users
+  res.render("pages/cadastro", { users: users });
 });
 
-router.get("/cadastro/remove/:id", (req, res) => {
-  res.send("Remoção realizada com sucesso!");
-  //remover the user
+router.post("/cadastro/remove", (req, res) => {
+  console.log("aqui");
+  let item = req.body.id; //pega o valor passado através do parâmetro id e atribui a variável item.
+  console.log(req.body);
+  users.splice(item, 1); //este método permite adicionar ou remover um item do vetor em uma dada posição.
+  //res.render('pages/cadastro',{users:users});
+  console.log(users);
+  res.sendStatus(200); //envia mensagem 200 significando que as modificacoes foram ok
 });
 
-router.get("/cadastro/update/:id", (req, res) => {
-  res.send("Atualização realizada com sucesso!");
+router.post("/cadastro/update", (req, res) => {
+  //substitui os valores armazenados no item do vetor dado por id, por valores fornecidos como parametro vindos do navegador.
+  //recebe dados do cliente na forma de um objeto JSON
+
+  users[req.body.id].name = req.body.name;
+  users[req.body.id].email = req.body.email;
+  users[req.body.id].address = req.body.address;
+  users[req.body.id].age = req.body.age;
+  users[req.body.id].height = req.body.height;
+  users[req.body.id].vote = req.body.vote;
+
+  console.log("Dados recebidos: ", req.body); //mostra no console do servidor os dados recebidos
+
+  res.sendStatus(200); //envia mensagem 2000 significando que as modificações foram OK
 });
 
 router.get("/cadastro/list", (req, res) => {

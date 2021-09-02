@@ -35,13 +35,28 @@
     <!-- CSS próprio -->
     <link rel="stylesheet" href="/css/style.css" />
 
-    <title>First App</title>
+    <title>AMII</title>
   </head>
   <body>
     <%- include('pages/header') %>
+
+    <!-- a chjamada para script.js foi colocada aqui para que possa ser vista antes da criacao da tabela presente no arquivo cadastro.ejs. Assim a funcao update() poderá ser considerada declarada antes de chegar no código presente em cadastro.ejs. -->
+
     <main>
       <div class=""><%- body %></div>
     </main>
+    <!--  <footer>
+      <div class="d-flex">
+        <div class="p-2 bg-info flex-grow-1 small text-white">
+          <i>Copyleft</i> Myguel A. M. Abreu - all rights reserved. Página sob
+          licença
+          <img
+            id="bagde"
+            src="https://img.shields.io/github/license/myguelangello/crud-node?color=blueviolet&style=flat"
+          />
+        </div>
+      </div>
+    </footer> -->
 
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -61,7 +76,8 @@
       integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
       crossorigin="anonymous"
     ></script>
-    <!-- JS próprio -->
+    <!-- JS's próprios -->
     <script src="/main.js"></script>
+    <script src="/script.js"></script>
   </body>
 </html>
