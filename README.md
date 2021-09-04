@@ -20,16 +20,16 @@
         <li><a href="https://nodejs.org/en/" target="_blank">Node.js</a></li>
         <li>
           <a href="https://expressjs.com/pt-br/" target="_blank">Express</a>
-        </li>
-        <li><a href="https://ejs.co/" target="_blank">EJS</a></li>
+         </li>
         <li>
           <a href="https://getbootstrap.com/" target="_blank"
             >Bootstrap 5.1.0</a
           >
         </li>
-        <li><a href="https://jquery.com/" target="_blank">jQuery</a></li>
+        <li><a href="https://ejs.co/" target="_blank">EJS</a> é uma linguagem de modelagem simples que permite gerar marcação HTML com JavaScript simples. Sem religiosidade sobre como organizar as coisas. Nenhuma reinvenção de iteração e fluxo de controle. É simplesmente JavaScript.</p>
+        </li>
         <li>
-          <a href="https://datatables.net/" target="_blank">DataTables</a>
+          <a href="https://datatables.net/" target="_blank">DataTables</a> é um plug-in para a biblioteca jQuery Javascript. É uma ferramenta altamente flexível, construída sobre as bases do aprimoramento progressivo, que adiciona facilmente vários recursos avançados a qualquer tabela HTML como: paginação, busca instantânea com pesquisa de texot, ordenação por colunas entre outros.</p>
         </li>
       </ul>
     </div>
