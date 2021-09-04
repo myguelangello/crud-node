@@ -14,14 +14,25 @@
 </div>
 <div>
   <h2>🧪 Tecnologias</h2>
-  <div>
-    <p>Esse projeto foi desenvolvido com as seguintes tecnologias:</p>
-    <ul>
-      <li><a href="https://nodejs.org/en/">Node.js</a></li>
-      <li><a href="https://expressjs.com/pt-br/">Express</a></li>
-      <li><a href="https://ejs.co/">EJS</a></li>
-    </ul>
-  </div>
+    <div>
+      <p>Esse projeto foi desenvolvido com as seguintes tecnologias:</p>
+      <ul>
+        <li><a href="https://nodejs.org/en/" target="_blank">Node.js</a></li>
+        <li>
+          <a href="https://expressjs.com/pt-br/" target="_blank">Express</a>
+        </li>
+        <li><a href="https://ejs.co/" target="_blank">EJS</a></li>
+        <li>
+          <a href="https://getbootstrap.com/" target="_blank"
+            >Bootstrap 5.1.0</a
+          >
+        </li>
+        <li><a href="https://jquery.com/" target="_blank">jQuery</a></li>
+        <li>
+          <a href="https://datatables.net/" target="_blank">DataTables</a>
+        </li>
+      </ul>
+    </div>
 </div>
 <!--div>
   <h2>✅ Features</h2>

@@ -15,8 +15,8 @@
       <thead>
         <tr>
           <th>Nome</th>
-          <th>Endereço</th>
           <th>Email</th>
+          <th>Endereço</th>
           <th>Idade</th>
           <th>Altura</th>
           <th>Vota?</th>
@@ -41,17 +41,18 @@
                         <input type="text" name="name"  class="hidden" value="<%= users[index].name %>">
                     </td>
 
+                    <!-- EMAIL -->
+                    <td data-index-row="<%=index%>">
+                        <span  class="show"><%= users[index].email %></span>
+                        <input type="text" name="email"  class="hidden" value="<%= users[index].email %>">
+                    </td>
+
                     <!-- ENDEREÇO -->
                     <td data-index-row="<%=index%>">
                         <span  class="show"><%= users[index].address %></span>
                         <input type="text" name="address"  class="hidden" value="<%= users[index].address %>">
                     </td>
 
-                    <!-- EMAIL -->
-                    <td data-index-row="<%=index%>">
-                        <span  class="show"><%= users[index].email %></span>
-                        <input type="text" name="email"  class="hidden" value="<%= users[index].email %>">
-                    </td>
 
                     <!-- IDADE -->
                     <td data-index-row="<%=index%>">
@@ -102,8 +103,8 @@
         <tfoot>
            <tr>
           <th>Nome</th>
-          <th>Endereço</th>
           <th>Email</th>
+          <th>Endereço</th>
           <th>Idade</th>
           <th>Altura</th>
           <th>Vota?</th>

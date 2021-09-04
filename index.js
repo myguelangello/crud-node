@@ -11,24 +11,24 @@ const address = "localhost";
 global.users = [
   {
     name: "Myguel Angello Maciel de Abreu",
-    address: "Rua PJR, 1103",
     email: "my@email.com",
+    address: "Rua PJR, 1103",
     age: 20,
     height: 1.7,
     vote: true,
   },
   {
     name: "Wellington Wagner",
-    address: "Rua Viewer, 13",
     email: "wwagner@email.com",
+    address: "Rua Viewer, 13",
     age: 46,
     height: 1.79,
     vote: true,
   },
   {
     name: "Fulano Cicrano de tal",
-    address: "Rua da liberdade, 100",
     email: "fulano@email.com",
+    address: "Rua da liberdade, 100",
     age: 31,
     height: 1.85,
     vote: true,

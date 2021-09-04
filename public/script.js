@@ -63,9 +63,9 @@ function update(index, link) {
         if (spans[cont].className == "hidden") {
           spans[cont].innerHTML = inputs[cont].value;
           spans[cont].className = "show";
-        } else {
+        } /* else {
           spans[cont].className = "hidden";
-        }
+        } */
       }
 
       //esconde os campos de preenchimento para o cadastro
