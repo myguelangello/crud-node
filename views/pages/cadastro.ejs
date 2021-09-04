@@ -5,8 +5,9 @@
   <div class="table-responsive">
     <table
       id="tableCadastro"
-      class="table table-bordered table-hover caption-top"
+      class="table table-hover caption-top"
       style="width: 100%"
+      is="list"
     >
       <caption>
         Lista de usuários cadastrados
@@ -18,91 +19,99 @@
           <th>Email</th>
           <th>Idade</th>
           <th>Altura</th>
-          <th>Vota</th>
+          <th>Vota?</th>
+          <th class="hidden"></th>
           <th>Editar</th>
-          <th>Salvar</th>
           <th>Apagar</th>
         </tr>
       </thead>
       <tbody>
-
+              
 
             <% let linkRemove="/cadastro/remove/"; %>
             <% let linkUpdate="/cadastro/update/"; %>
-            <% let indice; %>
-            <% for(let index=0;index<users.length;index++){ %>
-                <tr>
 
-                  <!-- td name -->
-              <td data-index-row="<%=index%>">
-                    <span id="fieldName<%=index%>" class="show"><%= users[index].name %></span>
-                    <input type="text" name="name" id="name<%=index%>" class="hidden" value="<%= users[index].name %>">
-                </td>
-
-                <!-- td email -->
-                <td data-index-row="<%=index%>">
-                    <span  class="show"><%= users[index].email %></span>
-                    <input type="text" name="email"  class="hidden" value="<%= users[index].email %>">
-                </td>
-
-                <!-- td address -->
-                <td data-index-row="<%=index%>">
-                    <span  class="show"><%= users[index].address %></span>
-                    <input type="text" name="address"  class="hidden" value="<%= users[index].address %>">
-                </td>
-
-                <!-- td agr -->
-                <td data-index-row="<%=index%>">
-                    <span  class="show"><%= users[index].age %></span>
-                    <input type="text" name="age"  class="hidden" value="<%= users[index].age %>">
-                </td>
-
-                <!-- td height -->
-                <td data-index-row="<%=index%>">
-                    <span  class="show"><%= users[index].height %></span>
-                    <input type="text" name="height"  class="hidden" value="<%= users[index].height %>">
-                </td>
-
-                <!-- td vote -->
-                <td data-index-row="<%=index%>">
-                    <span  class="show"><%= users[index].vote %></span>
-                    <input type="text" name="vote" class="hidden" value="<%= users[index].vote %>">
+            <% if(users.length >0){%>
+                <% for(let index=0;index<users.length;index++){ %>
+                    <tr data-index-row="<%= index %>">
                     
-                </td>
+                    <!-- NAME -->
+                    <td data-index-row="<%=index%>">
+                        <span  class="show"><%= users[index].name %></span>
+                        <input type="text" name="name"  class="hidden" value="<%= users[index].name %>">
+                    </td>
 
-                <!-- TD LINK UPDATE -->
-                <!-- a funcao update()  foi criada no arquivo script.js presente no diretorio public. Ela fará a modificação dos itens e envio dos dados na forma de uma string para o servidor usando como rta /cadastro/update/ -->
-                <td  data-index-row="<%=index%>">
-                  <a href="#" onclick="update('<%=index%>','<%= linkUpdate %>')" class="show"><i class="bi bi-pencil" style="font-size: 1.5rem; color: cornflowerblue"></i></a>  
-                </td> 
-                
-                <!-- botão atualizar -->
-                 <td data-index-row="<%=index%>" class="show" data-index-row="<%=index%>">
-                  <input disabled type="button" value="Atualizar" class="show">
-                </td>
-               
-                <!-- TD LINK REMOVE -->
-                <!-- para passar parametros para uma rota criada basta usar o delimitador "/" entre os valores dos parametros e defini-los no arquivo de rotas usando ":" para separar cada valor, seguido de um nome que identificarar esse valor. Exemplo: /cadastro/remove/:id -->
-                <td  data-index-row="<%= index %>">
-                    <a href="#" class="show" onclick="remove('<%=index %>','<%=linkRemove%>')"><i class="bi bi-trash" style="font-size: 1.5rem; color: red"> </i></a>
-                </td>
-                </tr>
-            <% } %>
+                    <!-- ENDEREÇO -->
+                    <td data-index-row="<%=index%>">
+                        <span  class="show"><%= users[index].address %></span>
+                        <input type="text" name="address"  class="hidden" value="<%= users[index].address %>">
+                    </td>
+
+                    <!-- EMAIL -->
+                    <td data-index-row="<%=index%>">
+                        <span  class="show"><%= users[index].email %></span>
+                        <input type="text" name="email"  class="hidden" value="<%= users[index].email %>">
+                    </td>
+
+                    <!-- IDADE -->
+                    <td data-index-row="<%=index%>">
+                        <span  class="show"><%= users[index].age %></span>
+                        <input type="number" name="age"  class="hidden" value="<%= users[index].age %>">
+                        
+                    </td>
+
+                    <!-- ALTURA -->
+                    <td data-index-row="<%=index%>">
+                        <span  class="show"><%= users[index].height %></span>
+                        <input type="text" name="height"  class="hidden" value="<%= users[index].height %>">
+                        
+                    </td>
+
+                    <!-- VOTA -->
+                    <td data-index-row="<%=index%>">
+                        <span  class="show"><%= users[index].vote %></span>
+                        <input type="text" name="vote" class="hidden" value="<%= users[index].vote %>">
+                    </td>
+
+                    <!-- ATUALIZAR -->
+                    <td data-index-row="<%=index%>" class="hidden" data-index-row="<%=index%>">
+                        <input type="button" value="Atualizar" class="hidden" >
+                    </td>
+
+                    <!-- a funcao update()  foi criada no arquivo script.js presente no diretorio public. Ela fará a modificação dos itens e envio dos dados na forma de uma string para o servidor usando como rta /cadastro/update/ -->
+                    <!-- UPDATE -->
+                    <td  data-index-row="<%= index %>">
+                        <a href="#" onclick="update('<%=index%>','<%= linkUpdate %>')" class="show"><i class="bi bi-pencil"></i></a>  
+                    </td> 
+                    
+                    <!-- para passar parametros para uma rota criada basta usar o delimitador "/" entre os valores dos parametros e defini-los no arquivo de rotas usando ":" para separar cada valor, seguido de um nome que identificarar esse valor. Exemplo: /cadastro/remove/:id -->
+                    <!-- DELETAR -->
+                    <td  data-index-row="<%= index %>">
+                        <!-- <a href="#" class="show" onclick="remove('<%=index %>','<%=linkRemove%>')"><i class="fas fa-trash-alt"></i></a> -->
+                        <a href="#" id="removeActive" class="show" onclick="remove('<%=index %>','<%=users[index].name %>','<%=linkRemove%>')"><i class="bi bi-trash"></i></a>
+                    </td>
+
+                    </tr>
+                <% } //for %>
+            <% }else{%>
+                <tr><td colspan="7"><p class="bg-info text-white">Nenhum dado cadastrado</p></td></tr>
+
+            <%} //If-Else %>   
 
         </tbody>
-      <tfoot>
-        <tr>
+        <tfoot>
+           <tr>
           <th>Nome</th>
           <th>Endereço</th>
           <th>Email</th>
           <th>Idade</th>
           <th>Altura</th>
-          <th>Vota</th>
+          <th>Vota?</th>
+          <th class="hidden"></th>
           <th>Editar</th>
-          <th>Salvar</th>
           <th>Apagar</th>
         </tr>
-      </tfoot>
+        </tfoot>
     </table>
   </div>
 </div>

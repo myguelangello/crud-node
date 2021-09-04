@@ -32,13 +32,34 @@ router.get("/cadastro", (req, res) => {
 });
 
 router.post("/cadastro/remove", (req, res) => {
-  console.log("aqui");
-  let item = req.body.id; //pega o valor passado através do parâmetro id e atribui a variável item.
-  console.log(req.body);
-  users.splice(item, 1); //este método permite adicionar ou remover um item do vetor em uma dada posição.
-  //res.render('pages/cadastro',{users:users});
-  console.log(users);
-  res.sendStatus(200); //envia mensagem 200 significando que as modificacoes foram ok
+  //let item =req.body.id; //pega o valor passado através do parâmetro id e atribui a variável item.
+  let name = req.body.name;
+
+  if (users.length == 0) {
+    console.log("Erro: Não há elemento a ser removido!");
+    return res.status(400).json({
+      status: "error",
+      error: `Removed element: ${name}`,
+    });
+  } else {
+    for (let cont = 0; cont < users.length; cont++) {
+      if (users[cont].name == name) {
+        users.splice(cont, 1);
+        console.log("Elemento Removido: ", name);
+        return res.status(200).json({
+          status: "sucess",
+          data: users,
+        });
+        //res.send(JSON.stringify({sucess:`Elemento removido com sucesso: ${name}`}));
+      } else if (cont == users.length - 1) {
+        console.log("Erro ao remover elemento: ", name);
+        return res.status(400).json({
+          status: "error",
+          error: `Removed element: ${name}`,
+        });
+      }
+    }
+  }
 });
 
 router.post("/cadastro/update", (req, res) => {
@@ -58,9 +79,12 @@ router.post("/cadastro/update", (req, res) => {
 });
 
 router.get("/cadastro/list", (req, res) => {
-  //listar de usuarios cadastrado
+  //Para fazer em casa: Como seria uma rotina para listar todos os itens cadastrados?
 });
 
-/* Essa linha permite que este código seja exportado como um
-módulo e possa ser usado em outras partes da aplicação.  */
+router.post("/cadastro/addUser", (req, res) => {
+  //Para fazer em casa: Como seria uma rotina para listar todos os itens cadastrados?
+});
+
+//Essa linha permite que este código seja exportado como um módulo e possa ser usado em outras partes da aplicação.
 module.exports = router;

@@ -21,7 +21,7 @@ ul {
 a {
   text-decoration: none;
 }
-li a.active {
+a.active:not(td a) {
   border: 0.125rem solid whitesmoke;
   border-left: none;
   border-right: none;
@@ -48,10 +48,59 @@ table tbody tr td a {
   justify-content: center;
 }
 
+.hidden {
+  display: none;
+}
+
 .show {
   display: inline-flexbox;
 }
 
-.hidden {
-  display: none;
+i.bi {
+  font-size: 1.25rem;
+}
+i.bi.bi-trash {
+  color: red;
+}
+
+td input:not([type="button"]) {
+  border: none;
+  border-bottom: 0.063rem solid;
+
+  background: none;
+}
+
+input[name="age"] {
+  width: 4rem;
+}
+
+input[name="height"] {
+  width: 4rem;
+}
+
+input[name="vote"] {
+  width: 6rem;
+}
+
+input[type="button"] {
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1.5;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+
+  color: white;
+  background-color: cornflowerblue;
+
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+input[type="button"]:hover {
+  background: white;
+  color: cornflowerblue;
+  border: 1px solid cornflowerblue;
 }

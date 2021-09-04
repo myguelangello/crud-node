@@ -1,7 +1,12 @@
 /* para mostrar o LINK ATIVO na NAVBAR */
-for (var i = 0; i < document.links.length; i++) {
-  if (document.links[i].href == document.URL) {
-    document.links[i].className = "nav-link active";
+/* se usar só document.links daria certo tbm 
+  porém incluiria todos as tags "a" do site 
+  e não somente as do menu */
+let a = document.getElementsByClassName("nav-link");
+for (var i = 0; i < a.length; i++) {
+  if (a[i].href == document.URL) {
+    a[i].className = "nav-link active";
+    console.log(document.URL);
   }
 }
 
