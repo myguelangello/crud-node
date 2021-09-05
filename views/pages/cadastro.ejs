@@ -1,13 +1,12 @@
 <%- contentFor('body') %>
 
 <div class="container-lg container-md container-sm">
-  <h2 class="">Cadastro</h2>
+  <h2 class="">Usuários <span class="text-muted">\ cadastrados</span></h2>
   <div class="table-responsive">
     <table
-      id="tableCadastro"
       class="table table-hover caption-top"
       style="width: 100%"
-      is="list"
+      id="list"
     >
       <caption>
         Lista de usuários cadastrados
@@ -19,10 +18,10 @@
           <th>Endereço</th>
           <th>Idade</th>
           <th>Altura</th>
-          <th>Vota?</th>
+          <th>Vota</th>
           <th class="hidden"></th>
           <th>Editar</th>
-          <th>Apagar</th>
+          <th>Remover</th>
         </tr>
       </thead>
       <tbody>
@@ -38,7 +37,7 @@
                     <!-- NAME -->
                     <td data-index-row="<%=index%>">
                         <span  class="show"><%= users[index].name %></span>
-                        <input type="text" name="name"  class="hidden" value="<%= users[index].name %>">
+                        <input type="text" name="name"  class="hidden" onfocus="true" value="<%= users[index].name %>" *>
                     </td>
 
                     <!-- EMAIL -->
@@ -80,24 +79,22 @@
                     </td>
 
                     <!-- a funcao update()  foi criada no arquivo script.js presente no diretorio public. Ela fará a modificação dos itens e envio dos dados na forma de uma string para o servidor usando como rta /cadastro/update/ -->
-                    <!-- UPDATE -->
+                    <!-- EDITAR -->
                     <td  data-index-row="<%= index %>">
-                        <a href="#" onclick="update('<%=index%>','<%= linkUpdate %>')" class="show"><i class="bi bi-pencil"></i></a>  
+                        <a href="#" onclick="update('<%=index%>','<%= linkUpdate %>');" class="show"><i class="bi bi-pencil"></i></a>  
                     </td> 
                     
                     <!-- para passar parametros para uma rota criada basta usar o delimitador "/" entre os valores dos parametros e defini-los no arquivo de rotas usando ":" para separar cada valor, seguido de um nome que identificarar esse valor. Exemplo: /cadastro/remove/:id -->
-                    <!-- DELETAR -->
+                    <!-- REMOVER -->
                     <td  data-index-row="<%= index %>">
                         <!-- <a href="#" class="show" onclick="remove('<%=index %>','<%=linkRemove%>')"><i class="fas fa-trash-alt"></i></a> -->
-                        <a href="#" id="removeActive" class="show" onclick="remove('<%=index %>','<%=users[index].name %>','<%=linkRemove%>')"><i class="bi bi-trash"></i></a>
+                        <a href="#" class="show" onclick='remove("<%=index %>","<%=users[index].name %>","<%=linkRemove%>");'><i class="bi bi-trash"></i></a>
                     </td>
 
                     </tr>
                 <% } //for %>
-            <% }else{%>
-                <tr><td colspan="7"><p class="bg-info text-white">Nenhum dado cadastrado</p></td></tr>
-
-            <%} //If-Else %>   
+            <% }%>
+                  
 
         </tbody>
         <tfoot>
@@ -107,10 +104,10 @@
           <th>Endereço</th>
           <th>Idade</th>
           <th>Altura</th>
-          <th>Vota?</th>
+          <th>Vota</th>
           <th class="hidden"></th>
           <th>Editar</th>
-          <th>Apagar</th>
+          <th>Remover</th>
         </tr>
         </tfoot>
     </table>

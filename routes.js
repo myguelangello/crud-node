@@ -37,7 +37,7 @@ router.post("/cadastro/remove", (req, res) => {
 
   if (users.length == 0) {
     console.log("Erro: Não há elemento a ser removido!");
-    return res.status(400).json({
+    return res.status(500).json({
       status: "error",
       error: `Removed element: ${name}`,
     });
@@ -55,11 +55,17 @@ router.post("/cadastro/remove", (req, res) => {
         console.log("Erro ao remover elemento: ", name);
         return res.status(400).json({
           status: "error",
-          error: `Removed element: ${name}`,
+          error: `Didn't Remove element: ${name}`,
         });
       }
     }
   }
+
+  //users.splice(item,1); //este método permite adicionar ou remover um item do vetor em uma dada posição.
+  //res.render('pages/cadastro',{users:users});
+  //res.sendStatus(200); //envia mensagem 200 significando que as modificacoes foram ok
+  //res.send(JSON.stringify({sucess:`Elemento removido com sucesso: ${name}`}));
+  //console.log("Elemento Removido: ",name);
 });
 
 router.post("/cadastro/update", (req, res) => {
