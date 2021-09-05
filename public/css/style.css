@@ -44,6 +44,7 @@ h2 {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   margin: 1.5rem 0 2rem;
+  padding-top: 1rem;
 }
 table tbody tr td a {
   display: flex !important;
@@ -92,7 +93,7 @@ input[name="vote"] {
   width: 6rem;
 }
 
-input[type="button"] {
+td input[type="button"] {
   display: inline-block;
   font-weight: 400;
   line-height: 1.5;
@@ -109,12 +110,17 @@ input[type="button"] {
     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-input[type="button"]:hover {
+td input[type="button"]:hover {
   background: white;
   color: cornflowerblue;
   border: 1px solid cornflowerblue;
 }
 /* FOOTER */
+hr {
+  border-top-color: #6c757d;
+  opacity: 0.5;
+}
+
 .site-footer {
   background-color: #26272b;
   margin-top: 3rem;

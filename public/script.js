@@ -151,7 +151,120 @@ function remove(index, _name, link) {
     }
   };
 }
+//Essa função recebe um objeto com os dados de cadastro de usuário. Valida um a um e caso haja algum erro
+//indica o local e retorna false
+function validaForm(data) {
+  //validação de nome
+  if (data._name.value == "") {
+    alert(
+      "Nenhum nome foi digitado, verifique o campo Nome e tente novamente."
+    );
+    data._name.focus();
+    return false;
+  }
 
-function add(data) {
-  //Adiciona um dado novo
+  if (data._email == "") {
+    alert(
+      "Nenhum e-mail foi digitado, verifique o campo E-mail e tente novamente."
+    );
+    data._email.focus();
+    return false;
+  }
+
+  if (data._address.value == "") {
+    alert(
+      "Nenhum endereço foi digitado, verifique o campo Endereço e tente novamente."
+    );
+    data._address.focus();
+    return false;
+  }
+
+  if (!Number.isInteger(Number(data._age.value))) {
+    alert("Esta idade não é válida, verifique se o valor é inteiro.");
+    data._age.focus();
+    return false;
+  }
+
+  if (data._age.value == "") {
+    alert(
+      "Nenhuma idade foi digitada, verifique o campo Idade e tente novamente."
+    );
+    data._age.focus();
+    return false;
+  }
+  if (Number(data._age.value) < 0 || Number(data._age.value) > 100) {
+    alert(
+      "Valor inválido para idade, verifique o campo Idade e tente novamente."
+    );
+    data._age.focus();
+    return false;
+  }
+
+  if (data._height.value == "") {
+    alert(
+      "Nenhuma altura foi digitada, verifique o campo Altura e tente novamente."
+    );
+    data._height.focus();
+    return false;
+  }
+
+  if (Number(data._height.value) < 50 || Number(data._height.value) > 220) {
+    alert(
+      "Valor inválido para altura, verifique se o campo Altura está em centímetros e tente novamente."
+    );
+    data._height.focus();
+    return false;
+  }
+
+  return true;
+}
+
+function add(inputs, link) {
+  if (validaForm(inputs)) {
+    const http = new XMLHttpRequest(); //cria um objeto para requisição ao servidor
+    const url = link;
+    let data = {
+      id: "",
+      name: "",
+      email: "",
+      address: "",
+      age: "",
+      height: "",
+      vote: "",
+    };
+    let dataToSend;
+    http.open("POST", link, true); //abre uma comunicação com o servidor através de uma requisição POST
+    http.setRequestHeader("Content-Type", "application/json"); //constroi um cabecalho http para envio dos dados
+    //preenche um objeto com o indice da linha da tabela e os valores dos campos input do tipo text
+
+    /* data.id = index; */
+    data.name = inputs._name.value;
+    data.email = inputs._email.value;
+    data.address = inputs._address.value;
+    data.age = inputs._height.value;
+    data.height = inputs._age.value;
+    data.vote = inputs._vote.value;
+
+    dataToSend = JSON.stringify(data); //transforma o objeto literal em uma string JSON que é a representação em string de um objeto JSON
+    http.send(dataToSend); //envia dados para o servidor na forma de JSON
+    /* este codigo abaixo foi colocado para que a interface de cadastro so seja modificada quando se receber um aviso do servidor que a modificacao foi feita com sucesso. No caso o aviso vem na forma do codigo 200 de HTTP: OK */
+
+    http.onload = () => {
+      inputs._name.value = "";
+      inputs._email.value = "";
+      inputs._address.value = "";
+      inputs._height.value = "";
+      inputs._age.value = "";
+      inputs._vote.value = "";
+      if (http.readyState === 4 && http.status === 200) {
+        alert("Usuário cadastrado com sucesso!");
+        //chamada de função de listagem de usuários na segunda tabela
+        /* listar("/cadastro/list"); */
+      } else {
+        console.log(
+          `Erro durante a tentativa de adição do usuário: ${_name}! Código do Erro: ${http.status}`
+        );
+      }
+    };
+  }
 }

@@ -17,9 +17,9 @@
           <th>Email</th>
           <th>Endereço</th>
           <th>Idade</th>
-          <th>Altura</th>
+          <th>Altura </th>
           <th>Vota</th>
-          <th class="hidden"></th>
+          <th class="hidden"></th><!-- ess th.hidden nunca aparece mas está aqui por questão de semântica exigida pelo Datatables -->
           <th>Editar</th>
           <th>Remover</th>
         </tr>
@@ -29,6 +29,7 @@
 
             <% let linkRemove="/cadastro/remove/"; %>
             <% let linkUpdate="/cadastro/update/"; %>
+            <% let linkAdd="/cadastro/add/"; %>
 
             <% if(users.length >0){%>
                 <% for(let index=0;index<users.length;index++){ %>
@@ -37,45 +38,44 @@
                     <!-- NAME -->
                     <td data-index-row="<%=index%>">
                         <span  class="show"><%= users[index].name %></span>
-                        <input type="text" name="name"  class="hidden" onfocus="true" value="<%= users[index].name %>" *>
+                        <input type="text" name="name"  class="hidden" onfocus="true" value="<%= users[index].name %>" />
                     </td>
 
                     <!-- EMAIL -->
                     <td data-index-row="<%=index%>">
                         <span  class="show"><%= users[index].email %></span>
-                        <input type="text" name="email"  class="hidden" value="<%= users[index].email %>">
+                        <input type="text" name="email"  class="hidden" value="<%= users[index].email %>" />
                     </td>
 
                     <!-- ENDEREÇO -->
                     <td data-index-row="<%=index%>">
                         <span  class="show"><%= users[index].address %></span>
-                        <input type="text" name="address"  class="hidden" value="<%= users[index].address %>">
+                        <input type="text" name="address"  class="hidden" value="<%= users[index].address %>" />
                     </td>
-
 
                     <!-- IDADE -->
                     <td data-index-row="<%=index%>">
                         <span  class="show"><%= users[index].age %></span>
-                        <input type="number" name="age"  class="hidden" value="<%= users[index].age %>">
+                        <input type="number" name="age"  class="hidden" value="<%= users[index].age %>" min="1" max="120" />
                         
                     </td>
 
                     <!-- ALTURA -->
                     <td data-index-row="<%=index%>">
                         <span  class="show"><%= users[index].height %></span>
-                        <input type="text" name="height"  class="hidden" value="<%= users[index].height %>">
+                        <input type="number" name="height"  class="hidden" value="<%= users[index].height %>" min="10" max="250" />
                         
                     </td>
 
                     <!-- VOTA -->
                     <td data-index-row="<%=index%>">
                         <span  class="show"><%= users[index].vote %></span>
-                        <input type="text" name="vote" class="hidden" value="<%= users[index].vote %>">
+                        <input type="text" name="vote" class="hidden" value="<%= users[index].vote %>" />
                     </td>
 
                     <!-- ATUALIZAR -->
-                    <td data-index-row="<%=index%>" class="hidden" data-index-row="<%=index%>">
-                        <input type="button" value="Atualizar" class="hidden" >
+                    <td class="hidden" data-index-row="<%=index%>">
+                        <input type="button" value="Atualizar" class="hidden" />
                     </td>
 
                     <!-- a funcao update()  foi criada no arquivo script.js presente no diretorio public. Ela fará a modificação dos itens e envio dos dados na forma de uma string para o servidor usando como rta /cadastro/update/ -->
@@ -88,7 +88,8 @@
                     <!-- REMOVER -->
                     <td  data-index-row="<%= index %>">
                         <!-- <a href="#" class="show" onclick="remove('<%=index %>','<%=linkRemove%>')"><i class="fas fa-trash-alt"></i></a> -->
-                        <a href="#" class="show" onclick='remove("<%=index %>","<%=users[index].name %>","<%=linkRemove%>");' data-bs-toggle="tooltip" data-bs-placement="top" title="Remover <%= users[index].name %>"><i class="bi bi-trash"></i></a>
+                        <!-- data-bs-toggle="tooltip" data-bs-placement="top" title="Remover <%= users[index].name %>" -->
+                        <a href="#" class="show" onclick='remove("<%=index %>","<%=users[index].name %>","<%=linkRemove%>");' ><i class="bi bi-trash"></i></a>
                     </td>
 
                     </tr>
@@ -103,13 +104,70 @@
           <th>Email</th>
           <th>Endereço</th>
           <th>Idade</th>
-          <th>Altura</th>
+          <th>Altura(cm)</th>
           <th>Vota</th>
-          <th class="hidden"></th>
+          <th class="hidden"></th><!-- essa th.hidden nunca aparece mas está aqui por questão de semântica exigida pelo Datatables -->
           <th>Editar</th>
           <th>Remover</th>
         </tr>
         </tfoot>
     </table>
   </div>
+  <hr>
 </div>
+
+<div class="container-lg container-md container-sm">
+        <h2 class="">
+          Usuários <span class="text-muted">\ cadastrar novos</span>
+        </h2>
+
+        <form name="formAdd" class="row g-3" ><!-- action="/cadastro/add" method="post" -->
+          <div class="col-4">
+            <label for="_name">Nome:</label>
+            <input data-add type="text" name="_name" id="_name" class="form-control" />
+          </div>
+
+          <div class="col-4">
+            <label for="_email">E-mail:</label>
+            <input data-add type="email" name="_email" id="_email" class="form-control" />
+          </div>
+
+          <div class="col-8">
+            <label for="_address">Endereço:</label>
+            <input data-add
+              type="text" name="_address" id="_address" class="form-control"
+            />
+          </div>
+
+          <div class="row">
+            <div class="col-1 col-sm-2">
+              <label for="_height">Altura(cm):</label>
+              <input data-add
+                type="number" name="_height" id="_height" class="form-control"  min="10" max="250"
+              />
+              <small id="heightHelp" class="form-text text-muted">Coloque a altura em centímetros.</small>
+            </div>
+
+            <div class="col-1 col-sm-2">
+              <label for="_age">Idade:</label>
+              <input data-add 
+                type="number" name="_age" id="_age" class="form-control" min="1" max=120 
+              />
+            </div>
+
+            <div class="col-1 col-sm-2">
+              <label for="_vote">Votou:</label>
+              <input data-add 
+                type="text" name="_vote" id="_vote" class="form-control" 
+              />
+            </div>
+          </div>
+
+          <div class="col-1">
+            <input 
+              type="button" value="Cadastrar" onclick="add(document.formAdd, '<%= linkAdd %>' );" class="btn btn-success" 
+            />
+            <!--<a href="#" class="show" onclick='remove("","","");' ></a> -->
+          </div>
+        </form>
+      </div>

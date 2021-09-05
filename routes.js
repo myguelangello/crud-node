@@ -88,8 +88,27 @@ router.get("/cadastro/list", (req, res) => {
   //Para fazer em casa: Como seria uma rotina para listar todos os itens cadastrados?
 });
 
-router.post("/cadastro/addUser", (req, res) => {
-  //Para fazer em casa: Como seria uma rotina para listar todos os itens cadastrados?
+router.post("/cadastro/add", (req, res) => {
+  let user = {
+    name: "",
+    email: "",
+    address: "",
+    heigth: "",
+    age: "",
+    vote: "",
+  };
+
+  user.name = req.body.name;
+  user.email = req.body.email;
+  user.address = req.body.address;
+  user.heigth = req.body.heigth;
+  user.age = req.body.age;
+  user.vote = req.body.vote;
+
+  users.push(user);
+  console.log("Usuário cadastrado: ", user);
+  /* console.log("Lista dos usuários: ", users); */ //nao use esta linha se tiver muitos elementos em users pois causara lentidao no servidor
+  res.sendStatus(200);
 });
 
 //Essa linha permite que este código seja exportado como um módulo e possa ser usado em outras partes da aplicação.
