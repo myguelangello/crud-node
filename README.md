@@ -31,20 +31,24 @@
         <li>
           <a href="https://datatables.net/" target="_blank">DataTables</a> é um plug-in para a biblioteca jQuery Javascript. É uma ferramenta altamente flexível, construída sobre as bases do aprimoramento progressivo, que adiciona facilmente vários recursos avançados a qualquer tabela HTML como: paginação, busca instantânea com pesquisa de texot, ordenação por colunas entre outros.</p>
         </li>
+        <li>
+          <a href="https://github.com/marak/Faker.js/" target="_blank">Faker</a>, biblioteca usada somente usado para criar usuários aleatoriamente.</p>
+        </li>
       </ul>
     </div>
 </div>
-<!--div>
+<div>
   <h2>✅ Features</h2>
   <div>
     <ul>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
+      <li>Listagem de Usuários</li>
+      <li>Pesquisar por qualquer item da tabela</li>
+      <li>Ordenar usuários na tabela por qualquer coluna</li>
+      <li>Atualizar dados dos usuários</li>
+      <li>Deletar usuários</li>
     </ul>
   </div>
-</div-->
+</div
 <div>
   <h2>🚀 Como executar</h2>
   <p>Para baixar o projeto siga as instruções abaixo:</p>
