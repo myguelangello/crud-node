@@ -46,6 +46,7 @@
       <li>Ordenar usuários na tabela por qualquer coluna</li>
       <li>Atualizar dados dos usuários</li>
       <li>Deletar usuários</li>
+      <li>Cadastrar usuários</li>
     </ul>
   </div>
 </div
